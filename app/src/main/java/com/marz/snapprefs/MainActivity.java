@@ -287,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
             if (Preferences.getBool(Preferences.Prefs.ACCEPTED_ALPHA_RISK)) {
                 Preferences.putBool("alphaRisk", false);
                 Logger.log("Reset AlphaRisk preference as Alpha Build is no longer being used.");
-                Toast.makeText(context, "You're now on a stable build", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "You're now on a stable build", Toast.LENGTH_SHORT);
             }
         }
         if (isGooglePlayInstalled()) {
