@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -252,6 +253,42 @@ public class MainActivity extends AppCompatActivity {
                     dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(b);
                 }
             });
+        }
+        String version = "ignored";
+        try {
+            version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (version.contains("Alpha") && !Preferences.getBool(Preferences.Prefs.ACCEPTED_ALPHA_RISK)) {
+            AlertDialog.Builder b = new AlertDialog.Builder(context)
+                    .setTitle("Alpha Build")
+                    .setView(R.layout.alpha_layout)
+                    .setMessage("This is an Alpha build. Some features may be missing or broken. Do not complain something isn't working correctly - make an issue on Github with proper logs.")
+                    .setPositiveButton("Acknowledge", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(MainActivity.context, "Acknowledged Alpha Build risk", Toast.LENGTH_SHORT).show();
+                            Preferences.putBool("alphaRisk", true);
+                        }
+                    })
+                    .setNegativeButton("Github Repo", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent web = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/marzika/Snapprefs"));
+                            startActivity(web);
+                        }
+                    });
+            b.setCancelable(false);
+            final AlertDialog alpha = b.create();
+            alpha.setCanceledOnTouchOutside(false);
+            alpha.show();
+        } else {
+            if (Preferences.getBool(Preferences.Prefs.ACCEPTED_ALPHA_RISK)) {
+                Preferences.putBool("alphaRisk", false);
+                Logger.log("Reset AlphaRisk preference as Alpha Build is no longer being used.");
+                Toast.makeText(context, "You're now on a stable build", Toast.LENGTH_SHORT);
+            }
         }
         if (isGooglePlayInstalled()) {
             gcm = GoogleCloudMessaging.getInstance(getApplicationContext());

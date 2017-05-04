@@ -434,6 +434,7 @@ public class Preferences {
         LENSES_SORT_BY_SEL("pref_key_sort_by_sel", true),
         LENSES_HIDE_CURRENTLY_PROVIDED_SC_LENSES("pref_key_hide_curr_provided_sc_lenses", false),
         ACCEPTED_TOU("acceptedToU", false),
+        ACCEPTED_ALPHA_RISK("alphaRisk", false),
         SELECT_STORY("pref_key_selectstory", false),
         SELECT_VENUE("pref_key_selectvenue", false),
         TEXT_TOOLS("pref_key_text", false),

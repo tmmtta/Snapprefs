@@ -293,7 +293,7 @@ public class PaintTools {
         };
     }
     private static class OptionsAdapter extends BaseAdapter {
-        String[] options = {"alpha", "eraser", "color", "gradient", "history", "hex", "shape", "blur" , "width", "hide"};
+        String[] options = {"alpha_layout", "eraser", "color", "gradient", "history", "hex", "shape", "blur" , "width", "hide"};
         Context context;
         XModuleResources mRes;
         int [] optionImageId = {R.drawable.alpha, R.drawable.eraser, R.drawable.colorpicker, R.drawable.draw_gradient, R.drawable.history, R.drawable.hashtag, R.drawable.shape, R.drawable.blur, R.drawable.width, R.drawable.hide};
@@ -346,7 +346,7 @@ public class PaintTools {
                 public void onClick(View v) {
                     // TODO Auto-generated method stub
                     switch (position) {
-                        case 0: { //alpha
+                        case 0: { //alpha_layout
                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
                             LinearLayout linearLayout = new LinearLayout(context);
                             linearLayout.setOrientation(LinearLayout.VERTICAL);

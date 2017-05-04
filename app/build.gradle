@@ -10,7 +10,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 26
-        versionName "2.1.0"
+        versionName "2.2.0 Alpha"
         buildConfigField "String", "JENKINS_BRANCH", "\"N/A\""
     }
     lintOptions{
