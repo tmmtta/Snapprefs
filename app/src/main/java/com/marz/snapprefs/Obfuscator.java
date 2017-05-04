@@ -62,8 +62,8 @@ public class Obfuscator implements Serializable {
         //User class
         public final static String USER_CLASS = ""; //prev. DP
         //ReceivedSnap class
-        public final static String RECEIVEDSNAP_CLASS = ""; //+ prev Sc
-        public final static String OBJECT_MID = "mId";
+        public final static String RECEIVEDSNAP_CLASS = "heb"; //+ prev Sc(9.39.5)//TODO: This class has definitely undergone a massive rewrite.
+        public final static String OBJECT_MID = "q";//prev mId(9.39.5) //TODO: Usage of this variable is in accordance with 9.39.5's use of mId. May be incorrect.
         public final static String OBJECT_CACHEKEYSUFFIX = "mCacheKeyInstanceSuffix";
         public final static String RECEIVEDSNAP_BEING_SEEN = "c"; // prev. d
         // ReceivedSnap.getCanonicalDisplayTime()
@@ -116,13 +116,13 @@ public class Obfuscator implements Serializable {
         //StatefulChatFeedItem.getSender()
         public final static String STATEFULCHATFEEDITEM_GETSENDER = "m";
         //ScreenshotDetector class -> datetaken
-        public final static String SCREENSHOTDETECTOR_CLASS = "Tk";//prev. Zm
+        public final static String SCREENSHOTDETECTOR_CLASS = "hki";//prev. Zm, Tk(9.39.5)
         //ScreenshotDetector.run(List)
-        public final static String SCREENSHOTDETECTOR_RUN = "a";
+        public final static String SCREENSHOTDETECTOR_RUN = "a";//nochange(9.39.5)
         //SnapStateMessage class
-        public final static String SNAPSTATEMESSAGE_CLASS = "aNt";//prev. auW
+        public final static String SNAPSTATEMESSAGE_CLASS = "nlb";//prev. auW,aNt(9.39.5)
         //SnapStateMessage.setScreenshotCount(Long)
-        public final static String SNAPSTATEMESSAGE_SETSCREENSHOTCOUNT = "a";//prev. b
+        public final static String SNAPSTATEMESSAGE_SETSCREENSHOTCOUNT = "a";//prev. b,nochange(9.39.5)
         //SentSnap Bitmap class
         public final static String SENT_CLASS = "UW";
         //SentSnap Bitmap method
@@ -366,9 +366,9 @@ public class Obfuscator implements Serializable {
         public final static String RECORDING_MESSAGE_HOOK_METHOD = "handleMessage";
     }
     public static class chat {
-        public final static String CHAT_CLASS = "Ie";
-        public final static String CONVERSATION_CLASS = "Ig";//prev. com.snapchat.android.model.chat.ChatConversation
-        public final static String ABSTRACT_CONVERSATION_CLASS = "IM";
+        public final static String CHAT_CLASS = "fdg"; //prev Ie(9.39.5)
+        public final static String CONVERSATION_CLASS = "fdl";//prev. com.snapchat.android.model.chat.ChatConversation, Ig(9.39.5)
+        public final static String ABSTRACT_CONVERSATION_CLASS = "fez";//prev IM(9.39.5)
         public final static String CHATFEEDITEM_CLASS = "com.snapchat.android.model.chat.ChatFeedItem";
         public final static String CONVERSATION_LOADOLDCHATS = "a";
         public final static String MESSAGEVIEWHOLDER_CLASS = "com.snapchat.android.app.feature.messaging.chat.impl.viewholder.MessageViewHolder";
@@ -394,6 +394,11 @@ public class Obfuscator implements Serializable {
         public final static String SCS_MESSAGE_METHOD = "a";
         public final static String CHAT_MESSAGE_BASE_CLASS = "aMj";
         public final static String CHAT_MESSAGE_DETAILS_CLASS = "aJE";
+        public final static String CHATMEDIA_CLASS1 = "fjy"; //prev. JZ(9.39.5)
+        public final static String CHATMEDIA_METHOD1 = "a"; //nochange so far
+        public final static String CHATMEDIA_CLASS2 = "fdw$b"; //prev. "com.snapchat.android.app.feature.messaging.chat.model2.ChatMedia"(9.39.5)
+        public final static String CHATMEDIA_METHOD2 = "fjz$b";//prev. Ka$b(9.39.5)
+        public final static String CHATMEDIA_CLASS3 = "kld"; //prev. aFj(9.39.5)
     }
     public static class notification {//NEEDS REWORK
         public final static String NOTIFICATION_CLASS_1 = "hgt$b.a.a";//prev. xH
